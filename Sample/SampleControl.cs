@@ -27,9 +27,16 @@ namespace Sample
         public override void Render(RenderTarget target)
         {
             target.Clear(new RawColor4(1.0f, 1.0f, 1.0f, 0f));
-            Brush brush = resCache["GreenBrush"] as Brush;
+            Brush brushGreen = resCache["GreenBrush"] as Brush;
+            Brush brushBlue = resCache["BlueBrush"] as Brush;
 
-            target.FillRectangle(new RawRectangleF(x, y, x + w, y + h), brush);
+            target.FillRectangle(new RawRectangleF(x, y, x + w, y + h), brushGreen);
+            RawVector2 vector2 = new RawVector2()
+            {
+                X = x,
+                Y = y,
+            };
+            target.FillEllipse(new Ellipse(vector2, rnd.Next(40,80), rnd.Next(20, 40)), brushBlue);
 
             x = x + dx;
             y = y + dy;
