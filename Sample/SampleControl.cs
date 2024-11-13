@@ -10,8 +10,8 @@ namespace Sample
 
         private float x = 0;
         private float y = 0;
-        private float w = 100;
-        private float h = 100;
+        private float w = 10;
+        private float h = 20;
         private float dx = 10;
         private float dy = 10;
 
@@ -33,10 +33,10 @@ namespace Sample
             target.FillRectangle(new RawRectangleF(x, y, x + w, y + h), brushGreen);
             RawVector2 vector2 = new RawVector2()
             {
-                X = x,
-                Y = y,
+                X = x + 30,
+                Y = y + 30,
             };
-            target.FillEllipse(new Ellipse(vector2, rnd.Next(40,80), rnd.Next(20, 40)), brushBlue);
+            target.FillEllipse(new Ellipse(vector2, h, h), brushBlue);
 
             x = x + dx;
             y = y + dy;
